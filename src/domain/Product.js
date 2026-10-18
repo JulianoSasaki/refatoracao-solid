@@ -7,6 +7,14 @@ class Product {
     this.weight = weight;
     this.stock = stock;
   }
+
+  hasStock(quantity) {
+    return this.stock >= quantity;
+  }
+
+  decreaseStock(quantity) {
+    this.stock -= quantity;
+  }
 }
 
 module.exports = Product;

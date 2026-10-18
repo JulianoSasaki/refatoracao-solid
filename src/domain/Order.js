@@ -19,9 +19,27 @@ class Order {
   }
 
   getTotalWeight() {
-    return this.items.reduce((total, item) => {
-      return total + item.product.weight * item.quantity;
-    }, 0);
+    return this.items.reduce((total, item) => total + item.getWeight(), 0);
+  }
+
+  getCustomerType() {
+    return this.customer.type;
+  }
+
+  getShippingRegion() {
+    return this.customer.getRegion();
+  }
+
+  hasCoupon(code) {
+    return this.couponCode === code;
+  }
+
+  isConfirmed() {
+    return this.status === "confirmed";
+  }
+
+  updateStatus(paymentStatus) {
+    this.status = paymentStatus === "approved" ? "confirmed" : "waiting_payment";
   }
 }
 

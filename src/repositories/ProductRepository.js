@@ -21,7 +21,7 @@ class ProductRepository {
       throw new Error("Produto nao encontrado.");
     }
 
-    product.stock -= quantity;
+    product.decreaseStock(quantity);
     return product;
   }
 
