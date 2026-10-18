@@ -28,6 +28,24 @@ Comandos:
 npm start
 ```
 
+Para rodar os testes:
+
+```bash
+npm test
+```
+
+## Estrutura depois da refatoração
+
+- `src/domain`: classes do domínio (pedido, item, cliente, produto, endereço).
+- `src/repositories`: repositórios de produtos e pedidos em memória.
+- `src/services/validation`: validação do pedido antes do processamento.
+- `src/services/discount`: regras de desconto, uma por classe, somadas pelo `DiscountCalculator`.
+- `src/services/freight`: cálculo do frete por região.
+- `src/services/payment`: uma classe para cada forma de pagamento e o `PaymentProcessor` que escolhe a certa.
+- `src/services/OrderService.js`: só coordena o fluxo do pedido, recebendo as dependências pelo construtor.
+- `src/createOrderService.js`: monta o `OrderService` com todas as dependências.
+- `tests`: testes automatizados com o `node:test`.
+
 ## Entregável
 Você deve entregar:
 1. Código-fonte refatorado (link do Github com o repositório corrigido).
